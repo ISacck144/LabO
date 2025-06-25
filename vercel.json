@@ -2,13 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "MyDjangoProject/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.11"
-      },
-      "buildCommand": "./build.sh"
+      "src": "vercel-build.sh",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
