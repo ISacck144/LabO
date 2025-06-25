@@ -6,7 +6,15 @@ from .views import StudentListCreateAPIView
 from . import views
 from .views import student_dashboard
 
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("¡Hola! Tu API de Django en Vercel está funcionando correctamente.")
+
 urlpatterns = [
+    #vercel
+    path('', views.home, name='home'),
+
     # Course URLs
     path('api/courses/', views.CourseListCreateView.as_view(), name='course-list-create'),
     path('api/courses/<uuid:pk>/', views.CourseDetailView.as_view(), name='course-detail'),
