@@ -87,7 +87,7 @@ TEMPLATES = [
 
 
 
-WSGI_APPLICATION = 'MyDjangoProject.wsgi.application'
+WSGI_APPLICATION = 'MyDjangoProject.wsgi.app'
 
 
 # Database
