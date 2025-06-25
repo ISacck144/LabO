@@ -35,6 +35,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 from .serializers import UserRegistrationSerializer, LoginSerializer
+from django.http import HttpResponse
 from django.http import HttpResponseBadRequest, JsonResponse
 from .serializers import (
     CourseSerializer, ProxySerializer, WorkloadSerializer,
@@ -43,6 +44,8 @@ from .serializers import (
     UserRegistrationSerializer, LoginSerializer, UserListSerializer, UserDetailSerializer
 )
 
+def home(request):
+    return HttpResponse("¡Hola! Tu API de Django en Vercel está funcionando correctamente.")
 
 class StudentsByWorkloadView(ListAPIView):
     serializer_class = StudentSerializer
