@@ -2,18 +2,19 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.py",
+      "src": "manage.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
+      "headers": { "cache-control": "public,max-age=31536000,immutable" },
       "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "api/index.py"
+      "dest": "manage.py"
     }
   ]
 }
