@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula Virtual - {{ student.names }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Aula Virtual de {{ student.names }}</h2>
+
+    <!-- Cursos Inscritos -->
+    <h4 class="mt-4">Cursos Inscritos</h4>
+    <div class="row">
+        {% for inscription in inscriptions %}
+        <div class="col-md-4">
+            <div class="card mb-3 border-primary">
+                <div class="card-header bg-primary text-white">
+                    {{ inscription.workload.year_course.name }} - Grupo {{ inscription.workload.group }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ inscription.workload.year_course.get_curriculum_display }}</h5>
+                    <p class="card-text">Docente: {{ inscription.workload.teacher }}</p>
+                    <p class="card-text"><small class="text-muted">Capacidad: {{ inscription.workload.capacity }}</small></p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No estás inscrito en ningún curso aún.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Anuncios -->
+    <h4 class="mt-5">Anuncios Recientes</h4>
+    {% if announcements %}
+        <ul class="list-group">
+        {% for announcement in announcements %}
+            <li class="list-group-item">
+                <h6>{{ announcement.title }}</h6>
+                <p>{{ announcement.message  }}</p>
+                <small class="text-muted">Publicado el {{ announcement.created_at|date:"d/m/Y H:i" }} por {{ announcement.workload.teacher }}</small>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted">No hay anuncios disponibles.</p>
+    {% endif %}
+</div>
+</body>
+</html>

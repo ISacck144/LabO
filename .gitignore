@@ -1,0 +1,9 @@
+my_env/bin/*
+my_env/lib/*
+my_env/src/__pycache__/*
+*.pyc
+__pycache__/
+env/
+my_env/
+env/
+venv/
