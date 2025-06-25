@@ -5,13 +5,13 @@ from django.urls import path
 from .views import StudentListCreateAPIView
 from . import views
 from .views import student_dashboard
-
+from .views import home
 
 
 
 urlpatterns = [
     #vercel
-    path('', views.home, name='home'),
+    path('', home, name='home'),
 
     # Course URLs
     path('api/courses/', views.CourseListCreateView.as_view(), name='course-list-create'),
